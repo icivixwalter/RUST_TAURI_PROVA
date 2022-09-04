@@ -1,7 +1,4 @@
-
-
 # Source code for the [Rust Tauri Introduction Video](https://www.youtube.com/watch?v=kRoGYgAuZQE&list=PL7r-PXl6ZPcCIOFaL7nVHXZvBmHNhrh_Q)
-
 
 ## Setup
 
@@ -14,20 +11,20 @@ npm install
 per attivare il procedimento in debug occorre  attivare il server
 locale con il terminale 1 e poi attivare il terminal 2 per il rust
 /ap reload che in tempo reale visualizza le modifiche in HTML le due
-direttive si trova nel package.json vedi lo scripts
+drive si trova nel package.json vedi lo scripts
 
 ```sh
-# terminal 1 (UI localhost for hot-reload)
+# terminal 1 (UI localhost for hot-reload) crea 1 terminale per  @attivare.il.server
 npm run ui-dev
 
-# terminal 2 (for the Rust/App hot-reload)
+# terminal 2 (for the Rust/App hot-reload)crea un 2 terminale per @attivare.debug.developer 
 npm
  run tauri dev
-```
+```bash
 
 # ATTIVAZIONE TAURI
 
-## PRODUZIONE
+
   
 Per la produzione occorre eseguire due compilazioni, secondo
 le direttive impostate nel file json
@@ -51,19 +48,29 @@ quello utilizzato per costruire l'eseguibile con il comando npm è la c) e la a)
   sia rust per il back-end e sia javascript, css e html per il front-end.
 @ATTIVA.TAURI, @RUN.TAURI, @
 
+## PRODUZIONE
 # Run Production
 
 ```sh
 # on the same terminal, for the frontend (translate typescript to javascript)
-npm run ui-build
-npm run tauri dev
+ca
+
+PER COSTRUIRE L'ESEGUIBILE FINALE  @COSTRUIRE.EXE, @EXE.DA.COSTRUIRE
+l'eseguibile fina ha bisogno di due operazione di costruzione la prima
+serve per tradure type script in java script unendo nache css e html.
+Il secondo comando costruisce il il rust + html completo nell'eseguibile.
+path da posizionare:
+C:\CASA\PROGRAMMI\RUST_TAURI\rust-tauri-intro-main
+
+npn run tauri ui-build  primo comando per la costruzione realese - traduzione 
+npn run tauri build     secondo comando per la costruzione realese
 ```
 
 ## Database Pool as state
 
 Rather to have a simple Mutex for the state, database can be used.
 
-```
+```bash
 sqlx = { version = "0.6", features = [ "runtime-tokio-rustls", "postgres" ] }
 ```
 
