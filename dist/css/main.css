@@ -40,8 +40,8 @@ div.hello {
   color: #888;
   font-size: 1.rem;
 }
-
-counter-button {
+/*@BUTTON_02 INCREMENTO*/
+counter-button2, button {
   cursor: pointer;
   user-select: none;
   -webkit-user-select: none;
@@ -52,7 +52,7 @@ counter-button {
   font-size: 1.5rem;
 }
 
-counter-button:active {
+counter-button2:active, button:active {
   background: hsl(210, 90%, 84%);
 }
 

@@ -25,20 +25,33 @@ fn main() {
 			Ok(())
 		})
 		.manage(Counter::default())
-		.invoke_handler(tauri::generate_handler![hello_world, add_count])
+		
+		//tre eventi button su questa istruzione @evento.3.button 
+		.invoke_handler(tauri::generate_handler![hello_world, add_count, sub_count,])
 		.run(tauri::generate_context!())
 		.expect("error while running tauri application");
 }
 
-#[tauri::command]
+//@BUTTON_01 HELLO WORD
+#[tauri::command] 
 fn hello_world() -> String {
-	"Hello World!!!!".to_string()
-}
+		"Hello World!!!!".to_string()
+	}
 
-#[tauri::command]
+#[tauri::command] //@BUTTON_02 INCREMENTO
 fn add_count(num: i32, counter: State<'_, Counter>) -> String {
 	let mut val = counter.0.lock().unwrap();
 	*val += num;
+	println!("{val}");
+	format!("{val}")
+}
 
+//nuova funzione di sottorazione - 
+#[tauri::command]  //@BUTTON_03 DECREMENTO
+fn sub_count(num: i32, counter: State<'_, Counter>) -> String {
+	let mut val = counter.0.lock().unwrap();
+	*val -= num;
+
+	println!("{val}");
 	format!("{val}")
 }

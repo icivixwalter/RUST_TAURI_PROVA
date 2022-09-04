@@ -5,8 +5,9 @@ const $ = document.querySelector.bind(document);
 document.addEventListener("DOMContentLoaded", async function () {
   // get the elements
   const helloEl = $("div.hello") as HTMLElement;
-  const counterButtonEl = $("counter-button") as HTMLElement;
+  const counterButtonEl = $("counter-button2.add") as HTMLElement; // . = classe css @INCREMENTA
   const counterResultEl = $("counter-result") as HTMLElement;
+  const myButton = $("button#sub") as HTMLElement; // # = id css  @DECREMENTA
   const pingEl = $("backend-ping") as HTMLElement;
 
   // listen backend-ping event
@@ -17,9 +18,15 @@ document.addEventListener("DOMContentLoaded", async function () {
     }, 500);
   })
 
-  // counter button click
+  // counter button click - somma @INCREMENTO
   counterButtonEl.addEventListener("pointerup", async function () {
     const result = await invoke("add_count", { num: 3 }) as string;
+    counterResultEl.textContent = result;
+  });
+
+  //nuovo bottone in sottrazione  @nuovo.bottone @DECREMENTA
+  myButton.addEventListener("pointerup", async function () {
+    const result = await invoke("sub_count", { num: 3 }) as string;
     counterResultEl.textContent = result;
   });
 
